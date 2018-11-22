@@ -1,0 +1,24 @@
+
+<?php
+
+/**
+ * @var \Visma\ProductLabel\Block\Label $myBlock
+ */
+$myBlock = \Magento\Framework\App\ObjectManager::getInstance()->get('Visma\ProductLabel\Block\Label');
+
+echo $this->getLayout()
+    ->createBlock('Visma\ProductLabel\Block\Label')
+    ->setTemplate("Vimsa_ProductLabel::getlabel.phtml")
+    ->toHtml();
+
+echo '<h1 class="something">something</h1>';
+
+echo $myBlock->getLabelText();
+
+$currentProduct = $myBlock->getCurrentProduct();
+
+if ($currentProduct->getSpecialPrice() !== null ): ?>
+
+<h1 class="label" style="background-color:<?php echo $myBlock->getColour();  ?>">! <?php echo $myBlock->getLabelText();  ?></h1>
+
+<?php endif; ?>

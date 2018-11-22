@@ -1,15 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vilius
- * Date: 18.11.22
- * Time: 12.10
- */
 
 namespace Visma\ProductLabel\Helper;
 
+use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Store\Model\ScopeInterface;
 
-class LabelData
+class LabelData extends AbstractHelper
 {
+
+    protected $_scopeConfig;
+
+    public function __construct(
+        \Magento\Framework\App\Helper\Context $context,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+    ) {
+        $this->_scopeConfig = $scopeConfig;
+        parent::__construct($context);
+    }
+
+    public function getConfig($entity)
+    {
+        return $this->_scopeConfig->getValue("productlabel/general/$entity", "websites");
+    }
 
 }
