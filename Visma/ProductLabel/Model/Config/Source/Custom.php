@@ -11,7 +11,6 @@ class Custom implements ArrayInterface
      */
     public function toOptionArray()
     {
-
         return [
             ['value' => 0, 'label' => __('Red')],
             ['value' => 1, 'label' => __('Green')],

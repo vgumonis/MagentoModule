@@ -17,7 +17,6 @@
          return parent::__construct($context);
      }
 
-
      public function getColour(): ?string
      {
         switch ($this->data->getConfig('label_colour')){
