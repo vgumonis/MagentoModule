@@ -11,6 +11,7 @@ class LabelData extends AbstractHelper
     protected $scopeConfig;
 
     const XML_PATH = 'productlabel/general/';
+    const SCOPE ="websites";
 
     public function __construct(
        Context $context, ScopeConfigInterface $scopeConfig
@@ -21,6 +22,6 @@ class LabelData extends AbstractHelper
 
     public function getConfig(string $entity): ?string
     {
-        return $this->scopeConfig->getValue(self::XML_PATH . $entity, "websites");
+        return $this->scopeConfig->getValue(self::XML_PATH . $entity, self::SCOPE);
     }
 }

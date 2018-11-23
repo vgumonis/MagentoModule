@@ -20,7 +20,6 @@
 
      public function getColour(): ?string
      {
-        ///return $this->data->getGeneralConfig('label-colour');
         switch ($this->data->getConfig('label_colour')){
             case "0":
                 return "red";

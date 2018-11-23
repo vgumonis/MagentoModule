@@ -30,10 +30,8 @@ class Label extends Action implements CsrfAwareActionInterface
     public function execute()
     {
         echo "This is the Label module.";
-
         var_dump($this->labelData->getConfig('label_colour'));
         var_dump($this->labelData->getConfig('label_text'));
-
         exit;
     }
 }
