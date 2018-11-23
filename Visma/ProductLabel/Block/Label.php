@@ -18,7 +18,7 @@
      }
 
 
-     public function getColour()
+     public function getColour(): ?string
      {
         ///return $this->data->getGeneralConfig('label-colour');
         switch ($this->data->getConfig('label_colour')){
@@ -35,7 +35,7 @@
         }
      }
 
-     public function getLabelText()
+     public function getLabelText(): ?string
      {
          return $this->data->getConfig('label_text');
      }

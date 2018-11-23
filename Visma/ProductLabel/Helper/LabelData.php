@@ -3,24 +3,24 @@
 namespace Visma\ProductLabel\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class LabelData extends AbstractHelper
 {
+    protected $scopeConfig;
 
-    protected $_scopeConfig;
+    const XML_PATH = 'productlabel/general/';
 
     public function __construct(
-        \Magento\Framework\App\Helper\Context $context,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+       Context $context, ScopeConfigInterface $scopeConfig
     ) {
-        $this->_scopeConfig = $scopeConfig;
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context);
     }
 
-    public function getConfig($entity)
+    public function getConfig(string $entity): ?string
     {
-        return $this->_scopeConfig->getValue("productlabel/general/$entity", "websites");
+        return $this->scopeConfig->getValue(self::XML_PATH . $entity, "websites");
     }
-
 }

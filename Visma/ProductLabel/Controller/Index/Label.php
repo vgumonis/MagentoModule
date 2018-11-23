@@ -6,8 +6,9 @@ use Magento\Framework\App\CsrfAwareActionInterface;
 use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Framework\App\RequestInterface;
 use Visma\ProductLabel\Helper\LabelData;
+use Magento\Framework\App\Action\Action;
 
-class Label extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
+class Label extends Action implements CsrfAwareActionInterface
 {
     private $labelData;
 
